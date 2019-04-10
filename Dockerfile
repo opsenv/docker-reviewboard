@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM ubuntu:16.04
 MAINTAINER igor.katson@gmail.com
 
 ARG RB_VERSION
@@ -20,7 +20,7 @@ RUN set -ex; \
     rm -rf /root/.cache
 
 ENV PATH="/opt/venv/bin:${PATH}"
-
+ADD ./sources.list  /etc/apt/sources.list
 ADD start.sh /start.sh
 ADD uwsgi.ini /uwsgi.ini
 ADD shell.sh /shell.sh
